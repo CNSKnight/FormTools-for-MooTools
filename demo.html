@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en">
+<head>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
+<script class="jsbin" src="http://FormTools/mootools-more-1.3.2.1-uncompressed.source.js"></script>
+<script class="jsbin" src="http://FormTools/sprintf.source.js"></script>
+<script class="jsbin" src="http://FormTools/FormTools.source.js"></script>
+<title>FormTools Demo New Customer Registration :: FormTools Demo</title>
+<meta charset="utf-8" />
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>@import('')</style>
+</head>
+<body>
+
+<div id="ftInfo" class="ui-widget ui-widget-content ui-corner-bl ui-corner-br infoDiv" style="display:none;">
+    <div id="ftInfo-hider" onclick="this.parentNode.style.display='none'; document.getElementById('aml-async-scroll').innerHTML='';">[close]</div>
+    <fieldset id="aml" style="display:none;">
+        <legend>Process Information:</legend>
+    </fieldset>
+    <fieldset id="aml-async" style="display:none; margin-right:3em;">
+        <legend>Async Log</legend>
+        <div id="aml-async-scroll" style="height:100px; overflow-y:scroll;"></div>
+    </fieldset>
+</div>
+
+    <fieldset class="form-cont"><legend>FormTools for MooTools Demo</legend>
+        <p>Welcome to the FormTools Demo. Give it a try here.</p>
+        <form id="formMEMREG" enctype="application/x-www-form-urlencoded" action="/acap/register.php" method="post" >
+        <input type="hidden" name="acap_form_id" value="formMEMREG" />
+
+        <fieldset><legend>Login Info:</legend>
+        <table cellpadding="3" cellspacing="2">
+            <tr style="display:none;">
+                <td width="150" class="taR"><span class="formReq">*</span> <label for="al">Admin Level:</label></td>
+                <td width="350" class="taL"></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span> <label for="acapuser">Email:</label></td>
+            
+                <td class="taL"><input id="acapuser" name="ui[acap_user]" type="text" class="input" value="" size="30" onchange="if (bae = document.getElementById('baemail')) {bae.value = this.value;}" /> <span class="helpQMark" title="This is also your login name.">?</span></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span> <label for="realname">Name of Account:</label></td>
+                <td class="taL"><input id="realname"  name="ui[real_name]" type="text" class="input" value="Guest" size="30" /> <span class="helpQMark" title="Your real name is visible only to our administration dept.">?</span></td>
+            </tr>
+            <tr>
+            
+                <td class="taR"><span class="formReq">*</span> <label for="dob-prompt" >Date-of-Birth:</label><input id="dob-prompt" type="hidden" name="dob" value="Select month day year drop-downs" /></td>
+                <td class="taL"><select id="ui[dob][m]" name="ui[dob][m]" >
+                    <option value="1" selected="selected">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    </select>
+                    <select id="ui[dob][d]" name="ui[dob][d]" >
+                    <option value="1" selected="selected">1</option>
+                    
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    </select>
+                    <select id="ui[dob][Y]" name="ui[dob][Y]" >
+                    <option value="1941">1941</option>
+                    <option value="1942">1942</option>
+                    <option value="1943">1943</option>
+                    <option value="1944">1944</option>
+                    <option value="1945">1945</option>
+                    
+                    <option value="1946">1946</option>
+                    <option value="1947">1947</option>
+                    <option value="1948">1948</option>
+                    <option value="1949">1949</option>
+                    <option value="1950">1950</option>
+                    <option value="1951">1951</option>
+                    <option value="1952">1952</option>
+                    <option value="1953">1953</option>
+                    <option value="1954">1954</option>
+                    
+                    <option value="1955">1955</option>
+                    <option value="1956">1956</option>
+                    <option value="1957">1957</option>
+                    <option value="1958">1958</option>
+                    <option value="1959">1959</option>
+                    <option value="1960">1960</option>
+                    <option value="1961">1961</option>
+                    <option value="1962">1962</option>
+                    <option value="1963">1963</option>
+                    
+                    <option value="1964">1964</option>
+                    <option value="1965">1965</option>
+                    <option value="1966">1966</option>
+                    <option value="1967" selected="selected">1967</option>
+                    <option value="1968">1968</option>
+                    <option value="1969">1969</option>
+                    <option value="1970">1970</option>
+                    <option value="1971">1971</option>
+                    <option value="1972">1972</option>
+                    
+                    <option value="1973">1973</option>
+                    <option value="1974">1974</option>
+                    <option value="1975">1975</option>
+                    <option value="1976">1976</option>
+                    <option value="1977">1977</option>
+                    <option value="1978">1978</option>
+                    <option value="1979">1979</option>
+                    <option value="1980">1980</option>
+                    <option value="1981">1981</option>
+                    
+                    <option value="1982">1982</option>
+                    <option value="1983">1983</option>
+                    <option value="1984">1984</option>
+                    <option value="1985">1985</option>
+                    <option value="1986">1986</option>
+                    <option value="1987">1987</option>
+                    <option value="1988">1988</option>
+                    <option value="1989">1989</option>
+                    <option value="1990">1990</option>
+                    
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    </select>
+             <span class="acapFormBoxComment"><label for="ui[dob][m]" >Month</label>/<label for="ui[dob][d]">Day</label>/<label for="ui[dob][Y]">Year</label></span></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span> <label for="pswd">Password:</label></td>
+            
+                <td class="taL"><input id="pswd" name="ui[acap_pw]" type="password" class="input" size="30" value="" /> <span class="helpQMark" title="Must be 8 or more characters in length.">?</span></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span> <label for="acap_pwv">Password (verify):</label></td>
+                <td class="taL"><input id="acap_pwv" name="ui[acap_pw_v]" type="password" class="input" size="30" value=""  /> <span class="helpQMark" title="Must match above.">?</span>
+                <br />
+            
+                </td>
+            </tr>
+            <tr>
+                <td class="taR" style="display:none" colspan="3"><span class="formReq">*</span> <input id="legal_age_cert" name="legal_age_cert_chk" type="hidden" value="1" title="I certify that I am of legal age checkbox"   /> I certify that I am of legal age to participate in FormTools Demo usage.</td>
+            </tr>
+            <tr>
+                <td class="taR" style="" colspan="3"><span class="formReq">*</span> <input id="terms_agree" name="terms_agree_chk" type="checkbox" value="1" title="I agree to FormTools Demo policies and terms checkbox"  /> <label for="terms_agree"> I agree to FormTools Demo site <a class="specialCase" href="#terms_agree" target="_New">policies and terms</a>.</label></td>
+            
+            </tr>
+            </table>
+            
+            </fieldset>
+            <fieldset><legend>Primary Contact Info:</legend>
+            <table cellpadding="3" cellspacing="2">
+            <tr>
+                  <td width="150" class="taR"><span class="formReq">*</span><label for="baemail">Email Address:</label></td>
+                  <td width="350" class="taL"><input id="baemail" name="ba[email]" type="email" class="input" value="" size="30" /></td>
+            
+            </tr>
+            <tr>
+                <td class="taR"><label for="cFName">Pre Nominal:</label></td>
+                <td class="taL"><input id="cFName" type="text" name="ba[pre_nominal]" value="" size="20" maxlength="32" class="input" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span><label for="fnam">First Name:</label></td>
+                <td><input id="fnam" name="ba[first_name]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span><label for="lnam">Last Name:</label></td>
+                <td><input id="lnam" name="ba[last_name]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><label for="cFName">Post Nominal:</label></td>
+                <td class="taL"><input id="cFName" type="text" name="ba[post_nominal]" value="" size="20" maxlength="32" class="input" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><label for="conam">Company Name:</label></td>
+                <td><input id="conam" name="ba[company_name]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><span class="formReq">*</span><label for="ad1">Address 1:</label></td>
+                <td><input id="ad1" name="ba[address1]" value="" type="text" class="input" size="30" /></td>
+            </tr>
+            
+            <tr>
+                <td class="taR"><label for="ad2">Address 2:</label></td>
+                <td><input id="ad2" name="ba[address2]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+            <td class="taR"><span class="formReq">*</span><label for="city">City:</label></td>
+                <td><input id="city" name="ba[city]" type="text" class="input" value="" size="30" /></td>
+            </tr>
+            <tr>
+                <td class="taR"><label for="bastate_id">State/Territory:</label></td>
+            <td>
+                <select id="bastate_id" name="ba[state_id]"  size="1" >
+                    <option value="">Choose State...</option>
+                    
+                    <option value="2" >Alabama</option>
+                    <option value="1" >Alaska</option>
+                    <option value="4" >Arizona</option>
+                    <option value="3" >Arkansas</option>
+                    <option value="5" >California</option>
+                    <option value="6" >Colorado</option>
+                    <option value="7" >Connecticut</option>
+                    <option value="9" >Delaware</option>
+                    <option value="8" >District of Columbia</option>
+                    
+                    <option value="10" >Flordia</option>
+                    <option value="11" >Georgia</option>
+                    <option value="12" >Hawaii</option>
+                    <option value="14" >Idaho</option>
+                    <option value="15" >Illinois</option>
+                    <option value="16" >Indiana</option>
+                    <option value="13" >Iowa</option>
+                    <option value="17" >Kansas</option>
+                    <option value="18" >Kentucky</option>
+                    
+                    <option value="19" >Louisiana</option>
+                    <option value="20" >Maine</option>
+                    <option value="21" >Maryland</option>
+                    <option value="22" >Massachusetts</option>
+                    <option value="23" >Michigan</option>
+                    <option value="24" >Minnesota</option>
+                    <option value="26" >Mississippi</option>
+                    <option value="25" >Missouri</option>
+                    <option value="27" >Montana</option>
+                    
+                    <option value="30" >Nebraska</option>
+                    <option value="34" >Nevada</option>
+                    <option value="31" >New Hampshire</option>
+                    <option value="32" >New Jersey</option>
+                    <option value="33" >New Mexico</option>
+                    <option value="35" >New York</option>
+                    <option value="28" >North Carolina</option>
+                    <option value="29" >North Dakota</option>
+                    <option value="36" >Ohio</option>
+                    
+                    <option value="37" >Oklahoma</option>
+                    <option value="38" >Oregon</option>
+                    <option value="39" >Pennsylvania</option>
+                    <option value="40" >Rhode Island</option>
+                    <option value="41" >South Carolina</option>
+                    <option value="42" >South Dakota</option>
+                    <option value="43" >Tennessee</option>
+                    <option value="44" >Texas</option>
+                    <option value="45" >Utah</option>
+                    
+                    <option value="47" >Vermont</option>
+                    <option value="46" >Virginia</option>
+                    <option value="48" >Washington</option>
+                    <option value="50" >West Virginia</option>
+                    <option value="49" >Wisconsin</option>
+                    <option value="51" >Wyoming</option>
+            </select>
+            </td>
+            </tr>
+            <tr>
+            <td class="taR"><label for="province">or Province:</label></td>
+            
+            <td><input id="province" name="ba[province]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+            <td class="taR"><span class="formReq">*</span><label for="zip">Zip/Post Code:</label></td>
+            <td><input id="zip" name="ba[zip]" type="text" class="input" size="30" value="" /></td>
+            </tr>
+            <tr>
+            <td class="taR"><span class="formReq">*</span><label for="bacntry">Country:</label></td>
+            <td>
+                <select id="bacntry" name="ba[country_id]"  size="1" >
+                    <option value="">Choose Country...</option>
+                    <option value="240" >Aaland Isls</option>
+                    
+                    <option value="1" >Afghanistan</option>
+                    <option value="2" >Albania</option>
+                    <option value="3" >Algeria</option>
+                    <option value="4" >American Samoa</option>
+                    <option value="5" >Andorra</option>
+                    <option value="6" >Angola</option>
+                    <option value="7" >Anguilla</option>
+                    <option value="8" >Antarctica</option>
+                    <option value="9" >Antigua and Barbuda</option>
+                    
+                    <option value="10" >Argentina</option>
+                    <option value="11" >Armenia</option>
+                    <option value="12" >Aruba</option>
+                    <option value="13" >Australia</option>
+                    <option value="14" >Austria</option>
+                    <option value="15" >Azerbaijan</option>
+                    <option value="16" >Bahamas</option>
+                    <option value="17" >Bahrain</option>
+                    <option value="18" >Bangladesh</option>
+                    
+                    <option value="19" >Barbados</option>
+                    <option value="20" >Belarus</option>
+                    <option value="21" >Belgium</option>
+                    <option value="22" >Belize</option>
+                    <option value="23" >Benin</option>
+                    <option value="24" >Bermuda</option>
+                    <option value="25" >Bhutan</option>
+                    <option value="26" >Bolivia</option>
+                    <option value="27" >Bosnia and Herzegowina</option>
+                    
+                    <option value="28" >Botswana</option>
+                    <option value="29" >Bouvet Island</option>
+                    <option value="30" >Brazil</option>
+                    <option value="31" >British IOT</option>
+                    <option value="32" >Brunei Darussalam</option>
+                    <option value="33" >Bulgaria</option>
+                    <option value="34" >Burkina Faso</option>
+                    <option value="35" >Burundi</option>
+                    <option value="36" >Cambodia</option>
+                    
+                    <option value="37" >Cameroon</option>
+                    <option value="38" >Canada</option>
+                    <option value="39" >Cape Verde</option>
+                    <option value="40" >Cayman Isls</option>
+                    <option value="41" >Central African Republic</option>
+                    <option value="42" >Chad</option>
+                    <option value="43" >Chile</option>
+                    <option value="44" >China</option>
+                    <option value="45" >Christmas Island</option>
+                    
+                    <option value="46" >Cocos (Keeling) Isls</option>
+                    <option value="47" >Colombia</option>
+                    <option value="48" >Comoros</option>
+                    <option value="49" >Congo</option>
+                    <option value="50" >Cook Isls</option>
+                    <option value="51" >Costa Rica</option>
+                    <option value="52" >Cote D'Ivoire</option>
+                    <option value="53" >Croatia</option>
+                    <option value="54" >Cuba</option>
+                    
+                    <option value="55" >Cyprus</option>
+                    <option value="56" >Czech Republic</option>
+                    <option value="57" >Denmark</option>
+                    <option value="58" >Djibouti</option>
+                    <option value="59" >Dominica</option>
+                    <option value="60" >Dominican Republic</option>
+                    <option value="61" >East Timor</option>
+                    <option value="62" >Ecuador</option>
+                    <option value="63" >Egypt</option>
+                    
+                    <option value="64" >El Salvador</option>
+                    <option value="65" >Equatorial Guinea</option>
+                    <option value="66" >Eritrea</option>
+                    <option value="67" >Estonia</option>
+                    <option value="68" >Ethiopia</option>
+                    <option value="69" >Falkland Isls (Malvinas)</option>
+                    <option value="70" >Faroe Isls</option>
+                    <option value="71" >Fiji</option>
+                    <option value="72" >Finland</option>
+                    
+                    <option value="73" >France</option>
+                    <option value="74" >France, Metropolitan</option>
+                    <option value="75" >French Guiana</option>
+                    <option value="76" >French Polynesia</option>
+                    <option value="77" >French Southern Territories</option>
+                    <option value="78" >Gabon</option>
+                    <option value="79" >Gambia</option>
+                    <option value="80" >Georgia</option>
+                    <option value="81" >Germany</option>
+                    
+                    <option value="82" >Ghana</option>
+                    <option value="83" >Gibraltar</option>
+                    <option value="84" >Greece</option>
+                    <option value="85" >Greenland</option>
+                    <option value="86" >Grenada</option>
+                    <option value="87" >Guadeloupe</option>
+                    <option value="88" >Guam</option>
+                    <option value="89" >Guatemala</option>
+                    <option value="90" >Guinea</option>
+                    
+                    <option value="91" >Guinea-bissau</option>
+                    <option value="92" >Guyana</option>
+                    <option value="93" >Haiti</option>
+                    <option value="94" >Heard / Mc Donald Isls</option>
+                    <option value="95" >Honduras</option>
+                    <option value="96" >Hong Kong</option>
+                    <option value="97" >Hungary</option>
+                    <option value="98" >Iceland</option>
+                    <option value="99" >India</option>
+                    
+                    <option value="100" >Indonesia</option>
+                    <option value="101" >Iran</option>
+                    <option value="102" >Iraq</option>
+                    <option value="103" >Ireland</option>
+                    <option value="104" >Israel</option>
+                    <option value="105" >Italy</option>
+                    <option value="106" >Jamaica</option>
+                    <option value="107" >Japan</option>
+                    <option value="108" >Jordan</option>
+                    
+                    <option value="109" >Kazakhstan</option>
+                    <option value="110" >Kenya</option>
+                    <option value="111" >Kiribati</option>
+                    <option value="112" >Korea, DPR of</option>
+                    <option value="113" >Korea, Republic of</option>
+                    <option value="114" >Kuwait</option>
+                    <option value="115" >Kyrgyzstan</option>
+                    <option value="116" >Lao PDR</option>
+                    <option value="117" >Latvia</option>
+                    
+                    <option value="118" >Lebanon</option>
+                    <option value="119" >Lesotho</option>
+                    <option value="120" >Liberia</option>
+                    <option value="121" >Libyan Arab Jamahiriya</option>
+                    <option value="122" >Liechtenstein</option>
+                    <option value="123" >Lithuania</option>
+                    <option value="124" >Luxembourg</option>
+                    <option value="125" >Macau</option>
+                    <option value="126" >Macedonia</option>
+                    
+                    <option value="127" >Madagascar</option>
+                    <option value="128" >Malawi</option>
+                    <option value="129" >Malaysia</option>
+                    <option value="130" >Maldives</option>
+                    <option value="131" >Mali</option>
+                    <option value="132" >Malta</option>
+                    <option value="133" >Marshall Isls</option>
+                    <option value="134" >Martinique</option>
+                    <option value="135" >Mauritania</option>
+                    
+                    <option value="136" >Mauritius</option>
+                    <option value="137" >Mayotte</option>
+                    <option value="138" >Mexico</option>
+                    <option value="139" >Micronesia, Fed. States of</option>
+                    <option value="140" >Moldova, Republic of</option>
+                    <option value="141" >Monaco</option>
+                    <option value="142" >Mongolia</option>
+                    <option value="143" >Montserrat</option>
+                    <option value="144" >Morocco</option>
+                    
+                    <option value="145" >Mozambique</option>
+                    <option value="146" >Myanmar</option>
+                    <option value="147" >Namibia</option>
+                    <option value="148" >Nauru</option>
+                    <option value="149" >Nepal</option>
+                    <option value="150" >Netherlands</option>
+                    <option value="151" >Netherlands Antilles</option>
+                    <option value="152" >New Caledonia</option>
+                    <option value="153" >New Zealand</option>
+                    
+                    <option value="154" >Nicaragua</option>
+                    <option value="155" >Niger</option>
+                    <option value="156" >Nigeria</option>
+                    <option value="157" >Niue</option>
+                    <option value="158" >Norfolk Island</option>
+                    <option value="159" >Northern Mariana Isls</option>
+                    <option value="160" >Norway</option>
+                    <option value="161" >Oman</option>
+                    <option value="162" >Pakistan</option>
+                    
+                    <option value="163" >Palau</option>
+                    <option value="164" >Panama</option>
+                    <option value="165" >Papua New Guinea</option>
+                    <option value="166" >Paraguay</option>
+                    <option value="167" >Peru</option>
+                    <option value="168" >Philippines</option>
+                    <option value="169" >Pitcairn</option>
+                    <option value="170" >Poland</option>
+                    <option value="171" >Portugal</option>
+                    
+                    <option value="172" >Puerto Rico</option>
+                    <option value="173" >Qatar</option>
+                    <option value="174" >Reunion</option>
+                    <option value="175" >Romania</option>
+                    <option value="176" >Russian Federation</option>
+                    <option value="177" >Rwanda</option>
+                    <option value="178" >Saint Kitts and Nevis</option>
+                    <option value="179" >Saint Lucia</option>
+                    <option value="180" >Saint Vincent / Grenadines</option>
+                    
+                    <option value="181" >Samoa</option>
+                    <option value="182" >San Marino</option>
+                    <option value="183" >Sao Tome and Principe</option>
+                    <option value="184" >Saudi Arabia</option>
+                    <option value="185" >Senegal</option>
+                    <option value="186" >Seychelles</option>
+                    <option value="187" >Sierra Leone</option>
+                    <option value="188" >Singapore</option>
+                    <option value="189" >Slovakia (Slovak Republic)</option>
+                    
+                    <option value="190" >Slovenia</option>
+                    <option value="191" >Solomon Isls</option>
+                    <option value="192" >Somalia</option>
+                    <option value="193" >South Africa</option>
+                    <option value="194" >South Georgia / So. Sandwich Isls</option>
+                    <option value="195" >Spain</option>
+                    <option value="196" >Sri Lanka</option>
+                    <option value="197" >St. Helena</option>
+                    <option value="198" >St. Pierre and Miquelon</option>
+                    
+                    <option value="199" >Sudan</option>
+                    <option value="200" >Suriname</option>
+                    <option value="201" >Svalbard / Jan Mayen Isls</option>
+                    <option value="202" >Swaziland</option>
+                    <option value="203" >Sweden</option>
+                    <option value="204" >Switzerland</option>
+                    <option value="205" >Syrian Arab Republic</option>
+                    <option value="206" >Taiwan</option>
+                    <option value="207" >Tajikistan</option>
+                    
+                    <option value="208" >Tanzania, United Republic of</option>
+                    <option value="209" >Thailand</option>
+                    <option value="210" >Togo</option>
+                    <option value="211" >Tokelau</option>
+                    <option value="212" >Tonga</option>
+                    <option value="213" >Trinidad and Tobago</option>
+                    <option value="214" >Tunisia</option>
+                    <option value="215" >Turkey</option>
+                    <option value="216" >Turkmenistan</option>
+                    
+                    <option value="217" >Turks and Caicos Isls</option>
+                    <option value="218" >Tuvalu</option>
+                    <option value="219" >Uganda</option>
+                    <option value="220" >Ukraine</option>
+                    <option value="221" >United Arab Emirates</option>
+                    <option value="222" >United Kingdom</option>
+                    <option value="223"  selected="selected">United States</option>
+                    <option value="225" >Uruguay</option>
+                    <option value="224" >US Minor Outlying Isls</option>
+                    
+                    <option value="226" >Uzbekistan</option>
+                    <option value="227" >Vanuatu</option>
+                    <option value="228" >Vatican City State (Holy See)</option>
+                    <option value="229" >Venezuela</option>
+                    <option value="230" >Viet Nam</option>
+                    <option value="231" >Virgin Isls (British)</option>
+                    <option value="232" >Virgin Isls (U.S.)</option>
+                    <option value="233" >Wallis and Futuna Isls</option>
+                    <option value="234" >Western Sahara</option>
+                    
+                    <option value="235" >Yemen</option>
+                    <option value="236" >Yugoslavia</option>
+                    <option value="237" >Zaire</option>
+                    <option value="238" >Zambia</option>
+                    <option value="239" >Zimbabwe</option>
+                    </select>
+            </td>
+            </tr>
+            <tr>
+            <td class="taR"><label for="phonenum">Phone:</label></td>
+            <td><input id="phonenum" name="ba[phone_number]" type="text" class="input" size="30" value="" /></td>
+            
+            </tr>
+        </table>
+        </fieldset>
+          <fieldset><legend>Miscellaneous:</legend>
+            <table><tr><td class="taR"><span class="formReq">*</span><label for="sm">I Like:</label></td>
+              <td class="taL">
+<select id="sm" name="oo[select-multiple]" multiple="multiple">
+    <option value="">Choose flavors:</option>
+    <option value="1">Chocolate</option>
+    <option value="2">Vanilla</option>
+    <option value="3">Strawberry</option>
+    <option value="4">Pistacio</option>
+</select>
+              </td></tr></table>
+      </fieldset>
+        <fieldset> <legend>Leave us a Note:</legend>
+            <p><span class="formReq">*</span><label for="msg">Message:</label></p>
+            <p class="taR"><textarea onfocus="this.value=(this.value=='And include your message...') ? '' : this.value;" cols="50" rows="5" name="oo[message]" id="msg"></textarea></p>
+            <p class="taR">Also send an automatic confirmation to your email address?<br />
+                       Confirmation: 
+                       <input type="radio" value="true" name="oo[confirmation]" id="confyes"> <label for="confyes">Send</label>
+                       <input type="radio" value="false" name="oo[confirmation]" id="confno"> <label for="confno">Don't Send</label>
+                       <input type="radio" value="true" name="oo[confirmation]" id="confmaybe"> <label for="confmaybe">Surprise Me</label>
+            </p>
+        </fieldset>
+        <p class="specialCase">Please note: This infomation is shared with noone and is visible only to you and our administrative representatives.</p>
+        <p style="margin-right:5%;" class="taR">
+            <button id="formMEMREG_submit" class="acap-button-single ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="submit"  name="acap-getpwd" value="Register &raquo;" >Register &raquo;</button>
+         </p>
+        <input type="hidden" name="demo" value="1" />
+
+        </form>
+    </fieldset>
+  <script>%code%</script>
+</body>
+</html>

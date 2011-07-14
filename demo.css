@@ -1,0 +1,69 @@
+article, aside, figure, footer, header, hgroup, 
+menu, nav, section { display: block; }
+#ftInfo {
+    background-color:#FCFCFC;
+    color: #FFFFFF;
+    font-size: 13px;
+    left: 10%;
+    padding: 5px;
+    position: fixed;
+    top: 5%;
+    z-index: 1000;
+    border: 1px solid #B8BFB0;
+}
+#ftInfo-hider {
+    background-color: transparent;
+    color: #696969;
+    cursor: pointer;
+    float: right;
+    font-size: 10px;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px;
+    text-align: right;
+    font-variant:small-caps;
+}
+#ftInfo fieldset {
+    background-color: transparent;
+    border: medium none;
+    color: #000000;
+    width: 300px;
+}
+#ftInfo fieldset fieldset {
+    border: 1px dotted #DDDDDD;
+    width: 250px;
+}
+#ftInfo legend {
+    background-color: transparent;
+    color: #696969;
+    margin-top: 0;
+    padding: 3px;
+}
+#ftInfo .specialCase {color:#FF0000;}
+.form-cont { width:530px; font-family:sans-serif;}
+.form-cont table {font-size:12px;}
+.taR {text-align:right;}
+.taL {text-align:left;}
+.formReq {color:#FF0000;}
+.helpQMark {
+    cursor: help;
+    font-size: large;
+    font-weight: bold;
+    outline: 1px dotted;
+    padding: 0 0.5em;
+}
+body>fieldset {margin:auto;}
+fieldset fieldset {
+	padding:10px;
+	margin-top:15px;
+	border:none;
+	border-top:1px dashed #000;
+}
+table {
+    width:97%;
+    margin:auto;
+}
+tr td:first-child {
+    width:30%;
+}
+input, select, textarea { font-size: 14px;}

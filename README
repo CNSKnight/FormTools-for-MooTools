@@ -1,5 +1,5 @@
 /**
-* FormChecks
+* FormTools
 * A MooTools 1.3 class suite for validating form elements
 * and other useful stuff to do with forms
 *
@@ -20,4 +20,5 @@
 This demo is a work in progress.
 @Todo's:
 _Round out the assertions demonstrated
+_Document and include 'Extras'
 _Complete this README

@@ -22,3 +22,45 @@ This demo is a work in progress.
 _Round out the assertions demonstrated
 _Document and include 'Extras'
 _Complete this README
+
+Functional About:
+
+FormTools was designed to help me save time enabling data validations coming from forms in web pages I build.
+I wanted to be able to configure the necessary validations for a form in one place in my server-side controllers and
+be able to run the same suite of validations for a form on the client-side (browser) AND the server-side, and it needed
+to b reliable. What I came up with:
+
+For Server-Side
+- an Array (in php but could be any language) defining validation assertions (1 each per form)
+-- might look like 
+            $billingAddressFieldChecks = array(
+                'email' => 'isNotEmailIfNotIsValueEmpty',
+                'pre_nominal' => '',
+                'first_name' => 'isValueEmpty',
+                'last_name' => 'isValueEmpty',
+                'post_nominal' => '',
+                'company_name' => '',
+                'address1' => 'isValueEmpty',
+                'address2' => '',
+                'city' => 'isValueEmpty',
+                'stateOrProvinceCheck' => array(
+                    'assertUsing' => 'isNotOneTrue',
+                    'state_id' => 'isWithoutSelectedOption',
+                    'province' => 'isValueEmpty',
+                    ),
+                'zip' => 'isValueEmpty',
+                'country_id' => 'isWithoutSelectedOption',
+                'phone_number' => '',
+                );
+- a suite of class methods to handle the assertions
+- and a few additional lines of back-end and front-end code to turn the array into a JSON string and send it to the browser along with 
+  some instructions (see what follows).
+  
+For Client-Side 
+- FormTools MooTools class
+- The above JSON object and a javascript event method bound to the form that will call FormTools using this assertions object when the
+  form is submitted. (See demo.source.js)
+  
+And that's it. Now I knock out my forms validation with just a few lines, and an occational custom Assertions (see FormTools.source.js). 
+and no extraneous,cryptic classes or rels or id's on my forms elements
+

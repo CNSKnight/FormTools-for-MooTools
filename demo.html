@@ -1,16 +1,89 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
-<script class="jsbin" src="http://FormTools/mootools-more-1.3.2.1-uncompressed.source.js"></script>
-<script class="jsbin" src="http://FormTools/sprintf.source.js"></script>
-<script class="jsbin" src="http://FormTools/FormTools.source.js"></script>
+<script class="jsbin" src="https://raw.github.com/CNSKnight/FormTools-for-MooTools/master/mootools-more-1.3.2.1.js"></script>
+<script class="jsbin" src="https://raw.github.com/CNSKnight/FormTools-for-MooTools/master/sprintf.source.js"></script>
+<script class="jsbin" src="https://raw.github.com/CNSKnight/FormTools-for-MooTools/master/FormTools.source.js"></script>
 <title>FormTools Demo New Customer Registration :: FormTools Demo</title>
 <meta charset="utf-8" />
 <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<style>@import('')</style>
+<link rel="stylesheet" type="text/css" href="https://raw.github.com/CNSKnight/FormTools-for-MooTools/master/demo.css" />
+<style>
+    /** jsbin Render doesn't seem to work w/strictly ext styleshets */
+    article, aside, figure, footer, header, hgroup, 
+    menu, nav, section { display: block; }
+    #ftInfo {
+        background-color:#FCFCFC;
+        color: #FFFFFF;
+        font-size: 13px;
+        left: 10%;
+        padding: 5px;
+        position: fixed;
+        top: 5%;
+        z-index: 1000;
+        border: 1px solid #B8BFB0;
+    }
+    #ftInfo-hider {
+        background-color: transparent;
+        color: #696969;
+        cursor: pointer;
+        float: right;
+        font-size: 10px;
+        font-weight: bold;
+        margin: 0;
+        padding: 3px;
+        text-align: right;
+        font-variant:small-caps;
+    }
+    #ftInfo fieldset {
+        background-color: transparent;
+        border: medium none;
+        color: #000000;
+        width: 300px;
+    }
+    #ftInfo fieldset fieldset {
+        border: 1px dotted #DDDDDD;
+        width: 250px;
+    }
+    #ftInfo legend {
+        background-color: transparent;
+        color: #696969;
+        margin-top: 0;
+        padding: 3px;
+    }
+    #ftInfo .specialCase {color:#FF0000;}
+    .form-cont { width:530px; font-family:sans-serif;}
+    .form-cont table {font-size:12px;}
+        .form-cont table td {padding:.2em 0px; margin:0px;}
+    .taR {text-align:right;}
+    .taL {text-align:left;}
+    .formReq {color:#FF0000;}
+    .helpQMark {
+        cursor: help;
+        font-size: large;
+        font-weight: bold;
+        outline: 1px dotted;
+        padding: 0 0.5em;
+    }
+    body>fieldset {margin:auto;}
+    fieldset fieldset {
+        padding:10px;
+        margin-top:15px;
+        border:none;
+        border-top:1px dashed #000;
+    }
+    table {
+        width:97%;
+        margin:auto;
+    }
+    tr td:first-child {
+        width:30%;
+    }
+    input, select, textarea { font-size: 14px;}
+</style>
 </head>
 <body>
 
@@ -31,11 +104,7 @@
         <input type="hidden" name="acap_form_id" value="formMEMREG" />
 
         <fieldset><legend>Login Info:</legend>
-        <table cellpadding="3" cellspacing="2">
-            <tr style="display:none;">
-                <td width="150" class="taR"><span class="formReq">*</span> <label for="al">Admin Level:</label></td>
-                <td width="350" class="taL"></td>
-            </tr>
+        <table>
             <tr>
                 <td class="taR"><span class="formReq">*</span> <label for="acapuser">Email:</label></td>
             
@@ -47,7 +116,7 @@
             </tr>
             <tr>
             
-                <td class="taR"><span class="formReq">*</span> <label for="dob-prompt" >Date-of-Birth:</label><input id="dob-prompt" type="hidden" name="dob" value="Select month day year drop-downs" /></td>
+                <td class="taR"><span class="formReq">*</span> <label for="dob-prompt">Date-of-Birth:</label><input id="dob-prompt" type="hidden" name="dob" value="Select month day year drop-downs" /></td>
                 <td class="taL"><select id="ui[dob][m]" name="ui[dob][m]" >
                     <option value="1" selected="selected">1</option>
                     <option value="2">2</option>
@@ -176,25 +245,25 @@
                 </td>
             </tr>
             <tr>
-                <td class="taR" style="display:none" colspan="3"><span class="formReq">*</span> <input id="legal_age_cert" name="legal_age_cert_chk" type="hidden" value="1" title="I certify that I am of legal age checkbox"   /> I certify that I am of legal age to participate in FormTools Demo usage.</td>
+                <td class="taR" style="display:none" colspan="2"><span class="formReq">*</span> <input id="legal_age_cert" name="legal_age_cert_chk" type="hidden" value="1" title="I certify that I am of legal age checkbox"   /> I certify that I am of legal age to participate in FormTools Demo usage.</td>
             </tr>
             <tr>
-                <td class="taR" style="" colspan="3"><span class="formReq">*</span> <input id="terms_agree" name="terms_agree_chk" type="checkbox" value="1" title="I agree to FormTools Demo policies and terms checkbox"  /> <label for="terms_agree"> I agree to FormTools Demo site <a class="specialCase" href="#terms_agree" target="_New">policies and terms</a>.</label></td>
+                <td class="taR" style="" colspan="2"><span class="formReq">*</span> <input id="terms_agree" name="terms_agree_chk" type="checkbox" value="1" title="I agree to FormTools Demo policies and terms checkbox"  /> <label for="terms_agree"> I agree to FormTools Demo site <a class="specialCase" href="void(0);">policies and terms</a>.</label></td>
             
             </tr>
             </table>
             
             </fieldset>
             <fieldset><legend>Primary Contact Info:</legend>
-            <table cellpadding="3" cellspacing="2">
+            <table>
             <tr>
-                  <td width="150" class="taR"><span class="formReq">*</span><label for="baemail">Email Address:</label></td>
-                  <td width="350" class="taL"><input id="baemail" name="ba[email]" type="email" class="input" value="" size="30" /></td>
+                  <td class="taR"><span class="formReq">*</span><label for="baemail">Email Address:</label></td>
+                  <td class="taL"><input id="baemail" name="ba[email]" type="email" class="input" value="" size="30" /></td>
             
             </tr>
             <tr>
-                <td class="taR"><label for="cFName">Pre Nominal:</label></td>
-                <td class="taL"><input id="cFName" type="text" name="ba[pre_nominal]" value="" size="20" maxlength="32" class="input" /></td>
+                <td class="taR"><label for="cPreNom">Pre Nominal:</label></td>
+                <td class="taL"><input id="cPreNom" type="text" name="ba[pre_nominal]" value="" size="20" maxlength="32" class="input" /></td>
             </tr>
             <tr>
                 <td class="taR"><span class="formReq">*</span><label for="fnam">First Name:</label></td>
@@ -205,8 +274,8 @@
                 <td><input id="lnam" name="ba[last_name]" type="text" class="input" size="30" value="" /></td>
             </tr>
             <tr>
-                <td class="taR"><label for="cFName">Post Nominal:</label></td>
-                <td class="taL"><input id="cFName" type="text" name="ba[post_nominal]" value="" size="20" maxlength="32" class="input" /></td>
+                <td class="taR"><label for="cPostNom">Post Nominal:</label></td>
+                <td class="taL"><input id="cPostNom" type="text" name="ba[post_nominal]" value="" size="20" maxlength="32" class="input" /></td>
             </tr>
             <tr>
                 <td class="taR"><label for="conam">Company Name:</label></td>
@@ -584,18 +653,18 @@
           <fieldset><legend>Miscellaneous:</legend>
             <table><tr><td class="taR"><span class="formReq">*</span><label for="sm">I Like:</label></td>
               <td class="taL">
-<select id="sm" name="oo[select-multiple]" multiple="multiple">
-    <option value="">Choose flavors:</option>
-    <option value="1">Chocolate</option>
-    <option value="2">Vanilla</option>
-    <option value="3">Strawberry</option>
-    <option value="4">Pistacio</option>
-</select>
+                    <select id="sm" name="oo[select-multiple]" multiple="multiple">
+                        <option value="">Choose flavors:</option>
+                        <option value="1">Chocolate</option>
+                        <option value="2">Vanilla</option>
+                        <option value="3">Strawberry</option>
+                        <option value="4">Pistacio</option>
+                    </select>
               </td></tr></table>
       </fieldset>
         <fieldset> <legend>Leave us a Note:</legend>
             <p><span class="formReq">*</span><label for="msg">Message:</label></p>
-            <p class="taR"><textarea onfocus="this.value=(this.value=='And include your message...') ? '' : this.value;" cols="50" rows="5" name="oo[message]" id="msg"></textarea></p>
+            <p class="taR"><textarea id="msg" cols="50" rows="5" name="oo[message]"></textarea></p>
             <p class="taR">Also send an automatic confirmation to your email address?<br />
                        Confirmation: 
                        <input type="radio" value="true" name="oo[confirmation]" id="confyes"> <label for="confyes">Send</label>
@@ -603,9 +672,9 @@
                        <input type="radio" value="true" name="oo[confirmation]" id="confmaybe"> <label for="confmaybe">Surprise Me</label>
             </p>
         </fieldset>
-        <p class="specialCase">Please note: This infomation is shared with noone and is visible only to you and our administrative representatives.</p>
+        <p class="specialCase">Opening your FireBug console will provide more info as you...</p>
         <p style="margin-right:5%;" class="taR">
-            <button id="formMEMREG_submit" class="acap-button-single ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="submit"  name="acap-getpwd" value="Register &raquo;" >Register &raquo;</button>
+            <button id="formMEMREG_submit" class="acap-button-single ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" type="submit"  name="acap-getpwd" value="Register &raquo;" >Run FormTools &raquo;</button>
          </p>
         <input type="hidden" name="demo" value="1" />
 

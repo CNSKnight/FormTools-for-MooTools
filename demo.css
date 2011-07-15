@@ -41,7 +41,8 @@ menu, nav, section { display: block; }
 }
 #ftInfo .specialCase {color:#FF0000;}
 .form-cont { width:530px; font-family:sans-serif;}
-.form-cont table {font-size:12px;}
+.form-cont td, .form-cont p {font-size:14px;}
+.form-cont table td {padding:.2em 0px;}
 .taR {text-align:right;}
 .taL {text-align:left;}
 .formReq {color:#FF0000;}
@@ -67,3 +68,4 @@ tr td:first-child {
     width:30%;
 }
 input, select, textarea { font-size: 14px;}
+.specialCase {color:#FF2222}
